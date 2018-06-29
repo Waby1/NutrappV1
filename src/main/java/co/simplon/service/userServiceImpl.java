@@ -1,4 +1,4 @@
-package co.simplon.service;
+/*package co.simplon.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,4 +26,4 @@ public class userServiceImpl implements userService{
         public Optional<userModel> findbyId(Long id) {
         	return userRepository.findById(id);
         }
-}
+}*/
