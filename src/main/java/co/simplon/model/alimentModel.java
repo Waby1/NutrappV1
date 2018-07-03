@@ -1,25 +1,19 @@
 package co.simplon.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "alimentModel")
-//@NamedQueries({
-//	@NamedQuery(name = "alimentModel.findAll", query = " SELECT f FROM alimentModel f ORDER BY f.name "),
-//	@NamedQuery(name = "alimentModel.deleteById", query = " DELETE FROM alimentModel f WHERE f.id = :id") })
 public class alimentModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	//
+
+	
 	@Column (name = "ID")
+
 	private long id;
 
 	@Column (name = "name")
@@ -31,14 +25,25 @@ public class alimentModel {
 	@Column (name = "chargeGly")
 	private int chargeGly;
 
+
+
+	//on crée une fonction vide pour pouvoir compiler la fonction
+
+
+	@ManyToMany
+	@JoinTable(name = "menu_composition", joinColumns = {@JoinColumn(name = "FK_MENU", referencedColumnName = "id")},
+			inverseJoinColumns = {@JoinColumn(name = "FK_ALIMENT", referencedColumnName = "id")}
+	)
 	
-	
-	
+	private List<menuModel> menuList = new ArrayList<menuModel>();
+
+
+
 	public alimentModel () {
 		
 	}
-	
-	
+
+
 	public alimentModel (long id, String name, int calorie, int chargeGly) {
 
 		this.id = id;

@@ -1,4 +1,4 @@
-package co.simplon.H2Folders;
+/*package co.simplon.H2Folders;
 
 
 	import java.io.FileNotFoundException;
@@ -41,13 +41,13 @@ import org.springframework.stereotype.Component;
 			loadDRITemplatesTable();
 		}
 
-		/**
+		*//**
 		 * Loads group data into FoodGroup table. Reads csv file to import food group
 		 * data. This function is used to import a single column file for base groups.
 		 * 
 		 * @param fileLocation
 		 *          the location of csv file to import
-		 */
+		 *//*
 		private final void loadGroupTable(String fileLocation) {
 
 			CSVParser csvParser = new CSVParserBuilder().withSeparator(CSV_SEPARATOR).build();
@@ -73,7 +73,7 @@ import org.springframework.stereotype.Component;
 			}
 		}
 
-		/**
+		*//**
 		 * Loads sub group data into FoodGroup table. Reads csv file to import food
 		 * group data. This function is used to import a multi column file as sub
 		 * groups. It is assumed that each sub group has a parent group column in csv
@@ -84,7 +84,7 @@ import org.springframework.stereotype.Component;
 		 *          the location of csv file to import
 		 * @param subGroupIndex
 		 *          the sub group column index
-		 */
+		 *//*
 		private final void loadSubGroupTable(String fileLocation, int subGroupIndex) {
 
 			CSVParser csvParser = new CSVParserBuilder().withSeparator(CSV_SEPARATOR).build();
@@ -94,11 +94,11 @@ import org.springframework.stereotype.Component;
 				// Reading all file content into fileLineList.
 				List<String[]> fileLineList = reader.readAll();
 
-				/*
+				
 				 * For each file line, we search in DB a food group matching name found in sub
 				 * group column index - 1. Then we create the new Food group named by sub group
 				 * column and with parent found in sub group column index - 1.
-				 */
+				 
 				for (String[] fileLine : fileLineList) {
 					List<FoodGroup> groupList = groupRepo.findByName(fileLine[subGroupIndex - 1]);
 					FoodGroup group = new FoodGroup(fileLine[subGroupIndex], groupList.get(0));
@@ -114,13 +114,13 @@ import org.springframework.stereotype.Component;
 			}
 		}
 
-		/**
+		*//**
 		 * Loads food data into Food table. Reads csv file to import food group data.
 		 * This function is used to import a multi column file as food items.
 		 * 
 		 * @param foodFileLocation
 		 *          the location of csv file to import
-		 */
+		 *//*
 		private final void loadFoodTable(String foodFileLocation) {
 
 			CSVParser csvParser = new CSVParserBuilder().withSeparator(CSV_SEPARATOR).build();
@@ -136,10 +136,10 @@ import org.springframework.stereotype.Component;
 				Map<String, FoodGroup> groupMap = groupRepo.findAll().stream()
 						.collect(Collectors.toMap(FoodGroup::groupFullHierachyToString, Function.identity()));
 
-				/*
+				
 				 * For each file line we first try to find the corresponding group. Then we
 				 * create a new Food item with the csv file data.
-				 */
+				 
 				List<Food> newFoodItemList = new ArrayList<>();
 				for (String[] fileLine : fileLineList) {
 					String groupFullHierarchy = "";
@@ -242,9 +242,9 @@ import org.springframework.stereotype.Component;
 			}
 		}
 
-		/**
+		*//**
 		 * Loads Daily Recommended Intakes based on ANSES recommendations.
-		 */
+		 *//*
 		private final void loadDRITemplatesTable() {
 			DRITemplate menTemplate = new DRITemplate("Homme", new BigDecimal(80), new BigDecimal(2600), new BigDecimal(0.15),
 					new BigDecimal(0.45), new BigDecimal(0.4), new BigDecimal(100), new BigDecimal(30), new BigDecimal(950),
@@ -274,3 +274,4 @@ import org.springframework.stereotype.Component;
 	
 	
 
+*/
