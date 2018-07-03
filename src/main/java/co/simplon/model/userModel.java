@@ -1,19 +1,9 @@
 package co.simplon.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "userModel")
-@NamedQueries({
-	@NamedQuery(name = "userModel.findAll", query = " SELECT f FROM userModel f ORDER BY f.name "),
-	@NamedQuery(name = "userModel.deleteById", query = " DELETE FROM userModel f WHERE f.id = :id") })
 
 
 public class userModel {
