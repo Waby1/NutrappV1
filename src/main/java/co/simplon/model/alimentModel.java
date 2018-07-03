@@ -11,9 +11,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "alimentModel")
-@NamedQueries({
-	@NamedQuery(name = "alimentModel.findAll", query = " SELECT f FROM alimentModel f ORDER BY f.name "),
-	@NamedQuery(name = "alimentModel.deleteById", query = " DELETE FROM alimentModel f WHERE f.id = :id") })
+//@NamedQueries({
+//	@NamedQuery(name = "alimentModel.findAll", query = " SELECT f FROM alimentModel f ORDER BY f.name "),
+//	@NamedQuery(name = "alimentModel.deleteById", query = " DELETE FROM alimentModel f WHERE f.id = :id") })
 public class alimentModel {
 
 	@Id
@@ -33,6 +33,9 @@ public class alimentModel {
 	
 	
 	
+	public alimentModel () {
+		
+	}
 	
 	
 	public alimentModel (long id, String name, int calorie, int chargeGly) {
