@@ -32,7 +32,7 @@ public class alimentModel {
 
 	
 	
-	
+	//on crée une fonction vide pour pouvoir compiler la fonction
 	public alimentModel () {
 		
 	}
