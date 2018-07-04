@@ -36,17 +36,23 @@ public class ProjetFilRougeApplication {
 
 			// we insert aliments into database
 
-			AlimentModel courgette = new AlimentModel(1, "Courgette", 11, 12);
+			AlimentModel courgette = new AlimentModel(null, "Courgette", 100, 12);
 			alimentRepository.save(courgette);
-			AlimentModel patate = new AlimentModel(2, "Patate", 6, 4);
+			AlimentModel patate = new AlimentModel(null, "Patate", 6, 4);
 			alimentRepository.save(patate);
+			AlimentModel chouxDeBrussels = new AlimentModel(null, "Choux de Brussels", 12, 5);
+			alimentRepository.save(chouxDeBrussels);
 
 			// we create a menu
 			List<AlimentModel> menu1 = new ArrayList<>();
 			menu1.add(courgette);
 			menu1.add(patate);
-			MenuModel menuDuJour = new MenuModel(1, "Menu du jour", 0, menu1);
+			menu1.add(chouxDeBrussels);
+			MenuModel menuDuJour = new MenuModel(null, "Menu du jour", 0, menu1);
 			menuRepository.save(menuDuJour);
+			alimentRepository.save(patate);
+			alimentRepository.save(courgette);
+			alimentRepository.save(chouxDeBrussels);
 
 		};
 	}

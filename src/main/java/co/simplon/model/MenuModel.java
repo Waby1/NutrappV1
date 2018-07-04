@@ -10,7 +10,7 @@ public class MenuModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -25,19 +25,24 @@ public class MenuModel {
 
     }
 
-    public MenuModel(long id, String name, int chargeGly, List<AlimentModel> menuComposition) {
+
+    public MenuModel(Long id, String name, int chargeGly, List<AlimentModel> menuComposition) {
         this.id = id;
         this.name = name;
         this.chargeGly = chargeGly;
         this.menuComposition = menuComposition;
+        for (AlimentModel a : menuComposition) {
+            a.saveAlimentIntoMenu(this);
+        }
 
     }
 
-    public long getId() {
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

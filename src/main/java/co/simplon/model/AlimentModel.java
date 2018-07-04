@@ -13,7 +13,7 @@ public class AlimentModel {
 
 	
 	@Column (name = "ID")
-	private long id;
+    private Long id;
 
 	@Column (name = "name")
 	private String name;
@@ -30,19 +30,17 @@ public class AlimentModel {
 
 
 	@ManyToMany
-	@JoinTable(name = "menu_composition", joinColumns = {@JoinColumn(name = "FK_MENU", referencedColumnName = "id")},
-			inverseJoinColumns = {@JoinColumn(name = "FK_ALIMENT", referencedColumnName = "id")}
+    @JoinTable(name = "menu_composition", joinColumns = {@JoinColumn(name = "FK_ALIMENT", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "FK_MENU", referencedColumnName = "id")}
 	)
 
     private List<MenuModel> menuList = new ArrayList<MenuModel>();
-
 
     public AlimentModel() {
 		
 	}
 
-
-    public AlimentModel(long id, String name, int calorie, int chargeGly) {
+    public AlimentModel(Long id, String name, int calorie, int chargeGly) {
 
 		this.id = id;
 
@@ -54,11 +52,16 @@ public class AlimentModel {
 
 	}
 
-	public long getId() {
+    public void saveAlimentIntoMenu(MenuModel e) {
+        menuList.add(e);
+
+    }
+
+    public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+    public void setId(Long id) {
 		this.id = id;
 	}
 
