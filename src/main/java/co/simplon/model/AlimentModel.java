@@ -5,15 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "alimentModel")
-public class alimentModel {
+@Table(name = "AlimentModel")
+public class AlimentModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
 	
 	@Column (name = "ID")
-
 	private long id;
 
 	@Column (name = "name")
@@ -34,17 +33,16 @@ public class alimentModel {
 	@JoinTable(name = "menu_composition", joinColumns = {@JoinColumn(name = "FK_MENU", referencedColumnName = "id")},
 			inverseJoinColumns = {@JoinColumn(name = "FK_ALIMENT", referencedColumnName = "id")}
 	)
-	
-	private List<menuModel> menuList = new ArrayList<menuModel>();
+
+    private List<MenuModel> menuList = new ArrayList<MenuModel>();
 
 
-
-	public alimentModel () {
+    public AlimentModel() {
 		
 	}
 
 
-	public alimentModel (long id, String name, int calorie, int chargeGly) {
+    public AlimentModel(long id, String name, int calorie, int chargeGly) {
 
 		this.id = id;
 

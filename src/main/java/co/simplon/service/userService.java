@@ -1,12 +1,9 @@
 package co.simplon.service;
 
 
-
+import javax.inject.Named;
 import java.util.List;
 import java.util.Optional;
-
-import javax.inject.Named;
-import co.simplon.model.userModel;
 
 
 @Named

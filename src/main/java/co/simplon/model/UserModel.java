@@ -3,10 +3,10 @@ package co.simplon.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "userModel")
+@Table(name = "UserModel")
 
 
-public class userModel {
+public class UserModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -19,9 +19,9 @@ public class userModel {
 	
 	@Column (name = "age")
 	private int age;
-	
-	
-	public userModel ( long id, String name, int age) {
+
+
+	public UserModel(long id, String name, int age) {
 		
 		this.id = id;
 		

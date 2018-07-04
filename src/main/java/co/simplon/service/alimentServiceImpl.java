@@ -1,33 +1,30 @@
-package co.simplon.service;
-
-import java.util.List;
-import java.util.Optional;
-
-import javax.inject.Inject;
-import javax.inject.Named;
-
-import co.simplon.model.alimentModel;
-import co.simplon.repository.alimentRepository;
-
-@Named
-public class alimentServiceImpl implements alimentService {
-
-	@Inject
-	alimentRepository alimentRepository;
-	 
-	public alimentModel saveAliment(alimentModel foo) {
-		  alimentRepository.save(foo);
-		  return foo;
-	    }
-
-	    public List<alimentModel> getAll() { 
-	    	 return alimentRepository.findAll(); 
-	    }
-	    
-	    
-	    public Optional<alimentModel> findbyId(Long id) {
-			
-       return alimentRepository.findById(id);
-	    }
-			
-}
+//package co.simplon.service;
+//
+//import co.simplon.model.AlimentModel;
+//import co.simplon.repository.AlimentRepository;
+//
+//import javax.inject.Inject;
+//import javax.inject.Named;
+//
+//@Named
+//public class alimentServiceImpl implements alimentService {
+//
+//	@Inject
+//	AlimentRepository alimentRepository;
+//
+//	public AlimentModel saveAliment(AlimentModel alimentModel) {
+//		AlimentRepository.save(alimentModel);
+//		return alimentModel;
+//	    }
+//
+////	public List<AlimentModel> getAll() {
+////		return AlimentRepository.findAll();
+////	    }
+////
+////
+////	public Optional<AlimentModel> findbyId(Long id) {
+////
+////		return AlimentRepository.findById(id);
+////	    }
+////
+//}

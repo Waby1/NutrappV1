@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "menuModel")
-public class menuModel {
+@Table(name = "MenuModel")
+public class MenuModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,13 +19,13 @@ public class menuModel {
     private int chargeGly;
 
     @ManyToMany(mappedBy = "menuList")
-    private List<alimentModel> menuComposition = new ArrayList<alimentModel>();
+    private List<AlimentModel> menuComposition = new ArrayList<AlimentModel>();
 
-    public menuModel() {
+    public MenuModel() {
 
     }
 
-    public menuModel(long id, String name, int chargeGly, ArrayList<alimentModel> menuComposition) {
+    public MenuModel(long id, String name, int chargeGly, List<AlimentModel> menuComposition) {
         this.id = id;
         this.name = name;
         this.chargeGly = chargeGly;

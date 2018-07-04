@@ -1,6 +1,6 @@
 package co.simplon.service;
 
-import co.simplon.model.alimentModel;
+import co.simplon.model.AlimentModel;
 
 import javax.inject.Named;
 import java.util.List;
@@ -9,9 +9,11 @@ import java.util.Optional;
 @Named
 public interface alimentService {
 
-	public alimentModel saveAliment (alimentModel alimentModel);
-	public List<alimentModel> getAll();
-	public Optional<alimentModel> findbyId(Long id);
+	public AlimentModel saveAliment(AlimentModel AlimentModel);
+
+	public List<AlimentModel> getAll();
+
+	public Optional<AlimentModel> findbyId(Long id);
 }
 
 
