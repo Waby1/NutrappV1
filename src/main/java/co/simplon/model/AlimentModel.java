@@ -10,9 +10,6 @@ public class AlimentModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-
-	
-	@Column (name = "ID")
     private Long id;
 
 	@Column (name = "name")
@@ -25,10 +22,12 @@ public class AlimentModel {
 	private int chargeGly;
 
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_FOODGROUP")
+    private FoodGroup foodGroup;
+
 
 	//on crée une fonction vide pour pouvoir compiler la fonction
-
-
 	@ManyToMany
     @JoinTable(name = "menu_composition", joinColumns = {@JoinColumn(name = "FK_ALIMENT", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "FK_MENU", referencedColumnName = "id")}
@@ -40,21 +39,29 @@ public class AlimentModel {
 		
 	}
 
-    public AlimentModel(Long id, String name, int calorie, int chargeGly) {
+    public AlimentModel(Long id, String name, int calorie, int chargeGly, FoodGroup foodGroup) {
 
 		this.id = id;
-
 		this.name = name;
-
 		this.calorie = calorie;
-
 		this.chargeGly = chargeGly;
+        this.foodGroup = foodGroup;
 
-	}
+
+    }
 
     public void saveAlimentIntoMenu(MenuModel e) {
         menuList.add(e);
 
+    }
+
+
+    public List<MenuModel> getMenuList() {
+        return menuList;
+    }
+
+    public void setMenuList(List<MenuModel> menuList) {
+        this.menuList = menuList;
     }
 
     public Long getId() {
@@ -88,5 +95,13 @@ public class AlimentModel {
 	public void setChargeGly(int chargeGly) {
 		this.chargeGly = chargeGly;
 	}
+
+    public FoodGroup getFoodGroup() {
+        return foodGroup;
+    }
+
+    public void setFoodGroup(FoodGroup foodGroup) {
+        this.foodGroup = foodGroup;
+    }
 
 }
