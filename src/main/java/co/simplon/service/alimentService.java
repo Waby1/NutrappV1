@@ -14,6 +14,7 @@ public interface alimentService {
 	public List<AlimentModel> getAll();
 
 	public Optional<AlimentModel> findbyId(Long id);
+
 }
 
 

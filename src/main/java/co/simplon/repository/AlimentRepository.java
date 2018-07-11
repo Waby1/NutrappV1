@@ -14,6 +14,8 @@ public interface AlimentRepository extends CrudRepository<AlimentModel, Long> {
 
 	List<AlimentModel> findByNameIgnoreCase(String name);
 
+	List<AlimentModel> findAll();
+
 
 }
 
