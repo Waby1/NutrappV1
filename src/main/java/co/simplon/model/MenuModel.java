@@ -15,8 +15,8 @@ public class MenuModel {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "totalChargeGly")
-    private int chargeGly;
+    @Column(name = "ChargeGlyMeals")
+    private int chargeGlyMeals;
 
     @ManyToMany(mappedBy = "menuList")
     private List<AlimentModel> menuComposition = new ArrayList<AlimentModel>();
@@ -26,10 +26,10 @@ public class MenuModel {
     }
 
 
-    public MenuModel(Long id, String name, int chargeGly, List<AlimentModel> menuComposition) {
+    public MenuModel(Long id, String name, int chargeGlyMeals, List<AlimentModel> menuComposition) {
         this.id = id;
         this.name = name;
-        this.chargeGly = chargeGly;
+        this.chargeGlyMeals = chargeGlyMeals;
         this.menuComposition = menuComposition;
         for (AlimentModel a : menuComposition) {
             a.saveAlimentIntoMenu(this);
@@ -55,11 +55,11 @@ public class MenuModel {
     }
 
     public int getChargeGly() {
-        return chargeGly;
+        return this.chargeGlyMeals;
     }
 
     public void setChargeGly(int chargeGly) {
-        this.chargeGly = chargeGly;
+        this.chargeGlyMeals = chargeGly;
     }
 }
 
