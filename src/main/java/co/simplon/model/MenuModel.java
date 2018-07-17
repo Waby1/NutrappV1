@@ -61,6 +61,10 @@ public class MenuModel {
     public void setChargeGly(int chargeGly) {
         this.chargeGlyMeals = chargeGly;
     }
+    
+    public String toString() {
+    	return ("name : " + this.name);
+    }
 }
 
 

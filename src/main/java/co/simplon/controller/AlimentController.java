@@ -1,7 +1,6 @@
 package co.simplon.controller;
 
 import co.simplon.model.AlimentModel;
-import co.simplon.oauth2.MyService;
 import co.simplon.repository.AlimentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +19,8 @@ import javax.inject.Inject;
 @CrossOrigin(origins = "http://localhost:4200")
 class AlimentController {
 
-	@Autowired
+	//@Autowired
+	@Inject
 	AlimentRepository alimentRepository;
 
 	@GetMapping
