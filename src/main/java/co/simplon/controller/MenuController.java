@@ -3,6 +3,7 @@ package co.simplon.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,7 +21,7 @@ public class MenuController {
 	MenuRepository menuRepository;
 
 	@PostMapping
-	public MenuModel createMenu(@RequestParam MenuModel menu) {
+	public MenuModel createMenu(@RequestBody MenuModel menu) {
 		System.out.println("json recu :");
 		System.out.println(menu);
 		menuRepository.save(menu);
