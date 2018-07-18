@@ -16,7 +16,7 @@ public class MenuModel {
     private String name;
 
     @Column(name = "ChargeGlyMeals")
-    private int chargeGlyMeals;
+    private long chargeGlyMeals;
 
     @ManyToMany(mappedBy = "menuList")
     private List<AlimentModel> menuComposition = new ArrayList<AlimentModel>();
@@ -26,7 +26,7 @@ public class MenuModel {
     }
 
 
-    public MenuModel(Long id, String name, int chargeGlyMeals, List<AlimentModel> menuComposition) {
+    public MenuModel(Long id, String name, long chargeGlyMeals, List<AlimentModel> menuComposition) {
         this.id = id;
         this.name = name;
         this.chargeGlyMeals = chargeGlyMeals;
@@ -54,11 +54,11 @@ public class MenuModel {
         this.name = name;
     }
 
-    public int getChargeGly() {
+    public long getChargeGlyMeals() {
         return this.chargeGlyMeals;
     }
 
-    public void setChargeGly(int chargeGly) {
+    public void setChargeGlyMeals(long chargeGly) {
         this.chargeGlyMeals = chargeGly;
     }
     

@@ -14,12 +14,10 @@ public class AlimentModel {
 
 	@Column (name = "name")
 	private String name;
-	
-	@Column (name = "calorie")
-	private int calorie;
+
 	
 	@Column (name = "chargeGly")
-	private int chargeGly;
+	private long chargeGly;
 
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -39,11 +37,10 @@ public class AlimentModel {
 		
 	}
 
-    public AlimentModel(Long id, String name, int calorie, int chargeGly, FoodGroup foodGroup) {
+	public AlimentModel(Long id, String name, long chargeGly, FoodGroup foodGroup) {
 
 		this.id = id;
 		this.name = name;
-		this.calorie = calorie;
 		this.chargeGly = chargeGly;
         this.foodGroup = foodGroup;
 
@@ -80,19 +77,11 @@ public class AlimentModel {
 		this.name = name;
 	}
 
-	public int getCalorie() {
-		return calorie;
-	}
-
-	public void setCalorie(int calorie) {
-		this.calorie = calorie;
-	}
-
-	public int getChargeGly() {
+	public long getChargeGly() {
 		return chargeGly;
 	}
 
-	public void setChargeGly(int chargeGly) {
+	public void setChargeGly(long chargeGly) {
 		this.chargeGly = chargeGly;
 	}
 
