@@ -6,7 +6,7 @@ import co.simplon.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-//RestController est utilisé pour permettre la transformation en jason
+//RestController est utilisé pour permettre la transformation en json
 @RestController
 @RequestMapping("/menu")
 @CrossOrigin(origins = "http://localhost:4200")
@@ -28,7 +28,7 @@ public class MenuController {
 	}
 
 	// méthode pour envoyer menus vers le front
-	//@GetMapping
+	@GetMapping
 	public Iterable<MenuModel> displayMenus() {
 		Iterable<MenuModel> list = menuRepository.findAll();
 		return list;
