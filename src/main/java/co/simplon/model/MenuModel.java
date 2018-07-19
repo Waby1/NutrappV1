@@ -18,26 +18,16 @@ public class MenuModel {
     @Column(name = "ChargeGlyMeals")
     private long chargeGlyMeals;
 
-    @ManyToMany(mappedBy = "menuList")
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "menu_composition", joinColumns = {@JoinColumn(name = "FK_ALIMENT", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "FK_MENU", referencedColumnName = "id")}
+    )
     private List<AlimentModel> menuComposition = new ArrayList<AlimentModel>();
 
     public MenuModel() {
 
     }
-
-
-    public MenuModel(Long id, String name, long chargeGlyMeals, List<AlimentModel> menuComposition) {
-        this.id = id;
-        this.name = name;
-        this.chargeGlyMeals = chargeGlyMeals;
-        this.menuComposition = menuComposition;
-        for (AlimentModel a : menuComposition) {
-            a.saveAlimentIntoMenu(this);
-        }
-
-    }
-
-
+    
     public Long getId() {
         return id;
     }
@@ -64,6 +54,14 @@ public class MenuModel {
     
     public String toString() {
     	return ("name : " + this.name);
+    }
+
+    public List<AlimentModel> getMenuComposition() {
+        return menuComposition;
+    }
+
+    public void setMenuComposition(List<AlimentModel> menuComposition) {
+        this.menuComposition = menuComposition;
     }
 }
 

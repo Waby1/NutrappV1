@@ -1,8 +1,6 @@
 package co.simplon.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "AlimentModel")
@@ -24,15 +22,6 @@ public class AlimentModel {
     @JoinColumn(name = "FK_FOODGROUP")
     private FoodGroup foodGroup;
 
-
-	//on crée une fonction vide pour pouvoir compiler la fonction
-	@ManyToMany
-    @JoinTable(name = "menu_composition", joinColumns = {@JoinColumn(name = "FK_ALIMENT", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "FK_MENU", referencedColumnName = "id")}
-	)
-
-    private List<MenuModel> menuList = new ArrayList<MenuModel>();
-
     public AlimentModel() {
 		
 	}
@@ -47,21 +36,7 @@ public class AlimentModel {
 
     }
 
-    public void saveAlimentIntoMenu(MenuModel e) {
-        menuList.add(e);
-
-    }
-
-
-    public List<MenuModel> getMenuList() {
-        return menuList;
-    }
-
-    public void setMenuList(List<MenuModel> menuList) {
-        this.menuList = menuList;
-    }
-
-    public Long getId() {
+	public Long getId() {
 		return id;
 	}
 
