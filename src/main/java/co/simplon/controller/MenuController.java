@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 //RestController est utilisé pour permettre la transformation en json
 @RestController
-@RequestMapping("/menu")
+@RequestMapping("/api/menu")
 @CrossOrigin(origins = "http://localhost:4200")
 public class MenuController {
 
