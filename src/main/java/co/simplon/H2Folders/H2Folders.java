@@ -26,8 +26,8 @@ public class H2Folders implements ApplicationListener<ContextRefreshedEvent> {
     @Autowired
     private AlimentRepository alimentRepository;
 
-    public H2Folders(AlimentRepository popo) {
-        this.alimentRepository = popo;
+    public H2Folders(AlimentRepository alimenRepo) {
+        this.alimentRepository = alimenRepo;
 
     }
 
@@ -62,10 +62,9 @@ public class H2Folders implements ApplicationListener<ContextRefreshedEvent> {
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            // We do nothing John Snow, as this is for Dev DB fill up
+
         } catch (IOException e) {
             e.printStackTrace();
-            // We do nothing John Snow, as this is for Dev DB fill up
         }
     }
 
